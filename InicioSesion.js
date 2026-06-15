@@ -2,13 +2,13 @@ const API_URL = 'https://safeplace-backend.onrender.com/api/v1';
 
 const usernameInput = document.getElementById('username');
 const passwordInput = document.getElementById('password');
-const toggleBtn     = document.getElementById('togglePassword');
-const eyeIcon       = document.getElementById('eyeIcon');
-const loginBtn      = document.getElementById('loginBtn');
-const errorMsg      = document.getElementById('errorMsg');
+const toggleBtn = document.getElementById('togglePassword');
+const eyeIcon = document.getElementById('eyeIcon');
+const loginBtn = document.getElementById('loginBtn');
+const errorMsg = document.getElementById('errorMsg');
 
 function showError(msg) { errorMsg.textContent = msg; }
-function clearError()   { errorMsg.textContent = ''; }
+function clearError() { errorMsg.textContent = ''; }
 
 async function handleLogin() {
   clearError();
@@ -26,7 +26,7 @@ async function handleLogin() {
     const res  = await fetch(`${API_URL}/auth/login`, {
       method:  'POST',
       headers: { 'Content-Type': 'application/json' },
-      body:    JSON.stringify({ email: username, password }),
+      body: JSON.stringify({ email: username, password }),
     });
 
     const data = await res.json();
@@ -35,7 +35,7 @@ async function handleLogin() {
       showError('Usuario o contraseña incorrectos.');
       passwordInput.value  = '';
       passwordInput.focus();
-      loginBtn.disabled    = false;
+      loginBtn.disabled = false;
       loginBtn.textContent = 'Ingresar';
       return;
     }
@@ -55,15 +55,18 @@ async function handleLogin() {
       `;
       setTimeout(() => {
         const role = data.user.role;
-        if (role === 'admin')           window.location.href = 'Admin-Home.html';
-        else if (role === 'supervisor') window.location.href = 'Supervisor-Home.html';
-        else                            window.location.href = 'Seguridad-Home.html';
+        if (role === 'admin')           
+          window.location.href = 'Admin-Home.html';
+        else if (role === 'supervisor') 
+            window.location.href = 'Supervisor-Home.html';
+        else                            
+            window.location.href = 'Seguridad-Home.html';
       }, 1500);
     }, 800);
 
   } catch (err) {
     showError('Error de conexión. Intente nuevamente.');
-    loginBtn.disabled    = false;
+    loginBtn.disabled = false;
     loginBtn.textContent = 'Ingresar';
   }
 }
