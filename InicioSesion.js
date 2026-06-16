@@ -1,4 +1,9 @@
-const API_URL = 'https://safeplace-backend.onrender.com/api/v1';
+//const API_URL = 'https://safeplace-backend.onrender.com/api/v1';
+const USERS = {
+  admin:      { password: 'admin123',  role: 'Admin' },
+  supervisor: { password: 'super123',  role: 'Supervisor' },
+  seguridad:  { password: 'seg123',    role: 'Seguridad' },
+};
 
 const usernameInput = document.getElementById('username');
 const passwordInput = document.getElementById('password');
