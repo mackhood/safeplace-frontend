@@ -1809,3 +1809,297 @@ select.cfg-input {
   .med-select, .med-input-date { min-width: 100%; }
   .med-table-wrap { padding: 12px 16px 20px; }
 }
+/* ============================================================
+   DISPOSITIVOS WEARABLE
+   Agregar al final de Styles.css
+   ============================================================ */
+
+/* ── ENCABEZADO ─────────────────────────────────────────────── */
+
+.wear-header {
+  padding: 20px 28px 0;
+}
+
+.wear-header__desc {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-top: 3px;
+}
+
+/* ── SIMULACIÓN DE TRANSMISIÓN ──────────────────────────────── */
+
+.wear-simulation {
+  margin: 20px 28px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.wear-sim__header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border-soft);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.wear-sim__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  padding: 16px 20px;
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+/* Tarjeta de dispositivo simulando transmisión */
+.wear-sim-card {
+  background: var(--bg-main);
+  border: 1px solid var(--border-soft);
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.8rem;
+}
+
+.wear-sim-card__id {
+  color: var(--text-secondary);
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+}
+
+.wear-sim-card__name {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.wear-sim-card__status {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--green);
+  font-size: 0.75rem;
+}
+
+.wear-sim-card__status::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: var(--green);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.wear-sim-card__packets {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+
+/* ── TABLA DE DISPOSITIVOS ──────────────────────────────────── */
+
+.wear-table-wrap {
+  padding: 0 28px 28px;
+  overflow-x: auto;
+}
+
+.wear-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  font-size: 0.875rem;
+}
+
+.wear-table thead tr {
+  border-bottom: 1px solid var(--border);
+}
+
+.wear-table th {
+  padding: 12px 20px;
+  text-align: left;
+  font-size: 0.67rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.wear-table tbody tr {
+  border-bottom: 1px solid var(--border-soft);
+  transition: background 0.15s;
+}
+
+.wear-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.wear-table tbody tr:hover {
+  background: var(--bg-card-alt);
+}
+
+.wear-table td {
+  padding: 13px 20px;
+  color: var(--text-primary);
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+/* Estado del dispositivo */
+.wear-badge-conectado {
+  background: rgba(74, 222, 128, 0.18);
+  color: var(--green);
+  padding: 3px 9px;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.wear-badge-conectado::before {
+  content: '● ';
+}
+
+.wear-badge-desconectado {
+  background: rgba(248, 113, 113, 0.18);
+  color: var(--red);
+  padding: 3px 9px;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.wear-badge-desconectado::before {
+  content: '● ';
+}
+
+.wear-badge-advertencia {
+  background: rgba(251, 146, 60, 0.18);
+  color: var(--orange);
+  padding: 3px 9px;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.wear-badge-advertencia::before {
+  content: '● ';
+}
+
+/* BLE state badges */
+.wear-ble-vinculado {
+  background: rgba(45, 212, 191, 0.18);
+  color: var(--teal-400);
+  padding: 3px 9px;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.wear-ble-vinculado::before {
+  content: '● ';
+}
+
+.wear-ble-buscando {
+  background: rgba(251, 146, 60, 0.18);
+  color: var(--orange);
+  padding: 3px 9px;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.wear-ble-buscando::before {
+  content: '● ';
+}
+
+/* Señal con ícono de dBm */
+.wear-signal {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+}
+
+.wear-signal svg {
+  width: 12px;
+  height: 12px;
+}
+
+.wear-signal__strength {
+  font-weight: 500;
+  font-size: 0.75rem;
+}
+
+.wear-signal__quality {
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  margin-left: 2px;
+}
+
+/* Barra de batería */
+.wear-battery {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.wear-battery__bar {
+  width: 60px;
+  height: 6px;
+  background: var(--bg-main);
+  border: 1px solid var(--border-soft);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.wear-battery__fill {
+  height: 100%;
+  background: var(--teal-400);
+  transition: width 0.3s;
+}
+
+.wear-battery__fill--low {
+  background: var(--orange);
+}
+
+.wear-battery__fill--critical {
+  background: var(--red);
+}
+
+.wear-battery__percent {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  min-width: 30px;
+}
+
+/* ── RESPONSIVE ─────────────────────────────────────────────── */
+
+@media (max-width: 1200px) {
+  .wear-sim__grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 900px) {
+  .wear-sim__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 700px) {
+  .wear-header { padding: 16px 16px 0; }
+  .wear-simulation { margin: 16px 16px; }
+  .wear-sim__grid { grid-template-columns: 1fr; }
+  .wear-table-wrap { padding: 0 16px 20px; }
+}
