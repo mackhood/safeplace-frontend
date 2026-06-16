@@ -1619,3 +1619,193 @@ select.cfg-input {
   .med-select, .med-input-date { min-width: 100%; }
   .med-table-wrap { padding: 12px 16px 20px; }
 }
+
+/* ============================================================
+   HISTORIAL DE MEDICIONES
+   Agregar al final de Styles.css
+   ============================================================ */
+
+/* ── ENCABEZADO + EXPORTACIÓN ───────────────────────────────── */
+
+.med-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 28px 0;
+}
+
+.med-header__count {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-top: 3px;
+}
+
+.med-export {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-export {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-family: var(--font);
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.btn-export:hover {
+  background: var(--bg-card-alt);
+  border-color: var(--teal-500);
+  color: var(--teal-400);
+}
+
+/* ── BARRA DE FILTROS ───────────────────────────────────────── */
+
+.med-filters {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  padding: 16px 28px;
+}
+
+.med-filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.med-filter-label {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.med-select,
+.med-input-date {
+  padding: 8px 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 0.875rem;
+  color: var(--text-primary);
+  font-family: var(--font);
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.2s;
+  min-width: 140px;
+}
+
+.med-select:focus,
+.med-input-date:focus {
+  border-color: var(--teal-500);
+}
+
+/* ── GRID DE GRÁFICAS ───────────────────────────────────────── */
+
+.med-charts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  padding: 0 28px;
+}
+
+/* ── TABLA DE MEDICIONES ────────────────────────────────────── */
+
+.med-table-wrap {
+  padding: 16px 28px 28px;
+  overflow-x: auto;
+}
+
+.med-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  font-size: 0.875rem;
+}
+
+.med-table thead tr {
+  border-bottom: 1px solid var(--border);
+}
+
+.med-table th {
+  padding: 12px 20px;
+  text-align: left;
+  font-size: 0.67rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.med-table tbody tr {
+  border-bottom: 1px solid var(--border-soft);
+  transition: background 0.15s;
+}
+
+.med-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.med-table tbody tr:hover {
+  background: var(--bg-card-alt);
+}
+
+.med-table td {
+  padding: 13px 20px;
+  color: var(--text-primary);
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+/* Valor de FC con color destacado si es alto */
+.med-fc-value {
+  font-weight: 700;
+}
+
+.med-fc-value--alto {
+  color: var(--orange);
+}
+
+.med-fc-value--critico {
+  color: var(--red);
+}
+
+/* Columna de validez: Sí / No */
+.med-valid-si {
+  color: var(--green);
+  font-weight: 500;
+}
+
+.med-valid-no {
+  color: var(--red);
+  font-weight: 500;
+}
+
+/* ── RESPONSIVE ─────────────────────────────────────────────── */
+
+@media (max-width: 1000px) {
+  .med-charts { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 700px) {
+  .med-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .med-export { width: 100%; }
+  .btn-export { flex: 1; justify-content: center; }
+  .med-filters { flex-direction: column; gap: 10px; padding: 12px 16px; }
+  .med-select, .med-input-date { min-width: 100%; }
+  .med-table-wrap { padding: 12px 16px 20px; }
+}
