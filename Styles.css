@@ -2103,3 +2103,269 @@ select.cfg-input {
   .wear-sim__grid { grid-template-columns: 1fr; }
   .wear-table-wrap { padding: 0 16px 20px; }
 }
+
+/* ============================================================
+   PROCESAMIENTO DE DATOS
+   Agregar al final de Styles.css
+   ============================================================ */
+
+/* ── ENCABEZADO ─────────────────────────────────────────────── */
+
+.proc-header {
+  padding: 20px 28px 0;
+}
+
+.proc-header__desc {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-top: 3px;
+}
+
+/* ── CONTENEDOR FLEX: TABLA + GRÁFICO ───────────────────────── */
+
+.proc-container {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 16px;
+  padding: 20px 28px 28px;
+}
+
+/* ── TABLA DE PROCESAMIENTO ─────────────────────────────────── */
+
+.proc-table-wrap {
+  overflow-x: auto;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.proc-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.proc-table thead tr {
+  border-bottom: 1px solid var(--border);
+}
+
+.proc-table th {
+  padding: 12px 20px;
+  text-align: left;
+  font-size: 0.67rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.proc-table tbody tr {
+  border-bottom: 1px solid var(--border-soft);
+  transition: background 0.15s;
+}
+
+.proc-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.proc-table tbody tr:hover {
+  background: var(--bg-card-alt);
+}
+
+.proc-table td {
+  padding: 12px 20px;
+  color: var(--text-primary);
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+/* Hora */
+.proc-hora {
+  color: var(--text-muted);
+  font-size: 0.82rem;
+}
+
+/* Origen (ID dispositivo) */
+.proc-origen {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* Tipo de medición */
+.proc-tipo {
+  color: var(--text-secondary);
+}
+
+/* Valor */
+.proc-valor {
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+/* Estado badges */
+.proc-badge-validado {
+  background: rgba(74, 222, 128, 0.18);
+  color: var(--green);
+  padding: 4px 10px;
+  border-radius: 16px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.proc-badge-validado::before {
+  content: '● ';
+  margin-right: 2px;
+}
+
+.proc-badge-marcado {
+  background: rgba(251, 146, 60, 0.18);
+  color: var(--orange);
+  padding: 4px 10px;
+  border-radius: 16px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.proc-badge-marcado::before {
+  content: '● ';
+  margin-right: 2px;
+}
+
+.proc-badge-rechazado {
+  background: rgba(248, 113, 113, 0.18);
+  color: var(--red);
+  padding: 4px 10px;
+  border-radius: 16px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.proc-badge-rechazado::before {
+  content: '● ';
+  margin-right: 2px;
+}
+
+/* Detalle */
+.proc-detalle {
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  max-width: 250px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── GRÁFICO DONUT ──────────────────────────────────────────── */
+
+.proc-chart {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.proc-chart__header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  width: 100%;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.proc-chart__canvas {
+  width: 140px;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.proc-chart__legend {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.8rem;
+  width: 100%;
+}
+
+.proc-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-secondary);
+}
+
+.proc-legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.proc-legend-dot--validado {
+  background: var(--green);
+}
+
+.proc-legend-dot--rechazado {
+  background: var(--red);
+}
+
+.proc-chart__percent {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.proc-chart__label {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+/* ── RESPONSIVE ─────────────────────────────────────────────── */
+
+@media (max-width: 1200px) {
+  .proc-container {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .proc-chart {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .proc-chart__canvas {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@media (max-width: 700px) {
+  .proc-header { padding: 16px 16px 0; }
+  .proc-container { padding: 16px 16px 20px; }
+
+  .proc-chart {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .proc-chart__canvas {
+    width: 140px;
+    height: 140px;
+  }
+}
